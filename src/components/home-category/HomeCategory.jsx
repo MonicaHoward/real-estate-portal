@@ -1,7 +1,8 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
-const HomeCategory = ({category, id, imgUrl}) => (
-    <div className="home-category">
+const HomeCategory = ({category, id, imgUrl, history, linkUrl, match}) => (
+    <div className="home-category" onClick={() => history.push(`${match.url}${category.toLowerCase()}`)}>
             <div className="category">
                 <div className="content">
                     <h1>{category}</h1>
@@ -11,4 +12,4 @@ const HomeCategory = ({category, id, imgUrl}) => (
         </div>
 )
 
-export default HomeCategory;
+export default withRouter(HomeCategory);
